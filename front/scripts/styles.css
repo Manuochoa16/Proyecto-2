@@ -1,0 +1,116 @@
+body {
+    background-image: radial-gradient(circle at 48% 33%, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.04) 8%,transparent 8%, transparent 92%),radial-gradient(circle at 28% 16%, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.04) 8%,transparent 8%, transparent 92%),radial-gradient(circle at 34% 52%, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.03) 6%,transparent 6%, transparent 94%),radial-gradient(circle at 92% 52%, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.03) 6%,transparent 6%, transparent 94%),radial-gradient(circle at 77% 84%, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.03) 6%,transparent 6%, transparent 94%),radial-gradient(circle at 75% 64%, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.03) 6%,transparent 6%, transparent 94%),radial-gradient(circle at 70% 62%, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.04) 4%,transparent 4%, transparent 96%),radial-gradient(circle at 55% 100%, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.04) 4%,transparent 4%, transparent 96%),radial-gradient(circle at 12% 11%, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.04) 4%,transparent 4%, transparent 96%),radial-gradient(circle at 35% 55%, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.04) 4%,transparent 4%, transparent 96%),linear-gradient(45deg, rgb(26, 21, 192),rgb(55,7,90));
+
+}
+
+body, h1, h2, h3, h4, h5, h6, p, a {
+    color: white;
+    font-family:sans-serif;
+}
+
+html, body {
+    height: 100%;
+}
+
+main{ 
+    margin-top: 60px;
+    
+}
+li a {
+    font-size: 20px;
+}
+
+#barNav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    transition: background-color 0.3s ease;
+}
+
+#footPage {
+    font-size: small;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+#name{
+    height: 40px;
+}
+
+.header-transparent {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.header-dark {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.sitio {
+    background-image: url();
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+}
+
+.links {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.links .enlaces {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+.links .enlaces li {
+    display: inline-block;
+    margin: 0 10px;
+    text-align: center;
+}
+
+.links .enlaces li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+.contenedor-peliculas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.pelicula {
+    width: 200px;
+    margin-bottom: 20px;
+}
+
+.pelicula img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.pelicula h4 {
+    margin-top: 0;
+}
+
+.pelicula p {
+    margin: 5px 0;
+}
