@@ -1,53 +1,51 @@
-console.log(tempData);
+const filmsSection = document.getElementById('contMovies');
 
-const contenedorPeliculas = document.getElementById("contMovies");
+$.get('https://students-api.up.railway.app/movies', function(data) {
+  if (data && Array.isArray(data)) {
+    data.forEach(function(movie) {
+      const movieElement = document.createElement('article');
 
+      movieElement.classList.add('pelicula');
 
-tempData.forEach(pelicula => {
+      // Agregamos el evento de mouseover para girar la tarjeta al pasar el ratón sobre ella
+      movieElement.addEventListener('mouseover', function() {
+        movieElement.classList.add('flipped');
+      });
 
-  const peliculaDiv = document.createElement("div");
-  peliculaDiv.classList.add("pelicula");
+      // Agregamos el evento de mouseout para volver a la posición original al retirar el ratón
+      movieElement.addEventListener('mouseout', function() {
+        movieElement.classList.remove('flipped');
+      });
 
-  const titulo = document.createElement("h4");
-  titulo.textContent = pelicula.title;
+      movieElement.innerHTML = `
+        <div class="front-face">
+          <img src="${movie.poster}" alt="${movie.title}">
+        </div>
+        <div class="back-face">
+          <h3>${movie.title} - (${movie.year})</h3> 
+          <p><strong> Director: </strong> ${movie.director}</p>
+          <p><strong> Duracion: </strong> ${movie.duration}</p>
+          <p><strong> Género: </strong> ${movie.genre}</p>
+          <p><strong> Puntaje: </strong> ${movie.rate}</p>
+        </div>
+      `;
 
-  const director = document.createElement("p");
-  director.textContent = "Director: " + pelicula.director;
-
-  const duracion = document.createElement("p");
-  duracion.textContent = "Duración: " + pelicula.duration;
-
-  const genero = document.createElement("p");
-  genero.textContent = "Género: " + pelicula.genre.join(", ");
-
-  const calificacion = document.createElement("p");
-  calificacion.textContent = "Calificación: " + pelicula.rate;
-
-  const imagen = document.createElement("img");
-  imagen.src = pelicula.poster;
-  imagen.alt = pelicula.title;
-
-
-  peliculaDiv.appendChild(imagen);
-  peliculaDiv.appendChild(titulo);
-  peliculaDiv.appendChild(director);
-  peliculaDiv.appendChild(duracion);
-  peliculaDiv.appendChild(genero);
-  peliculaDiv.appendChild(calificacion);
-
-
-  contenedorPeliculas.appendChild(peliculaDiv);
+      filmsSection.appendChild(movieElement);
+    });
+  } else {
+    alert('Error al obtener las películas');
+  }
 });
 
 window.addEventListener('scroll', function() {
-    var header = document.getElementById('barNav');
-    var scrollPosition = window.scrollY;
-  
-    if (scrollPosition > 0) {
-      header.classList.add('header-dark');
-      header.classList.remove('header-transparent');
-    } else {
-      header.classList.remove('header-dark');
-      header.classList.add('header-transparent');
-    }
-  });
+  var header = document.getElementById('barNav');
+  var scrollPosition = window.scrollY;
+
+  if (scrollPosition > 0) {
+    header.classList.add('header-dark');
+    header.classList.remove('header-transparent');
+  } else {
+    header.classList.remove('header-dark');
+    header.classList.add('header-transparent');
+  }
+});
