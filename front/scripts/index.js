@@ -7,12 +7,10 @@ $.get('https://students-api.up.railway.app/movies', function(data) {
 
       movieElement.classList.add('pelicula');
 
-      // Agregamos el evento de mouseover para girar la tarjeta al pasar el ratón sobre ella
       movieElement.addEventListener('mouseover', function() {
         movieElement.classList.add('flipped');
       });
 
-      // Agregamos el evento de mouseout para volver a la posición original al retirar el ratón
       movieElement.addEventListener('mouseout', function() {
         movieElement.classList.remove('flipped');
       });
@@ -25,7 +23,7 @@ $.get('https://students-api.up.railway.app/movies', function(data) {
           <h3>${movie.title} - (${movie.year})</h3> 
           <p><strong> Director: </strong> ${movie.director}</p>
           <p><strong> Duracion: </strong> ${movie.duration}</p>
-          <p><strong> Género: </strong> ${movie.genre}</p>
+          <p><strong> Género: </strong> ${movie.genre.join(', ')}</p>
           <p><strong> Puntaje: </strong> ${movie.rate}</p>
         </div>
       `;

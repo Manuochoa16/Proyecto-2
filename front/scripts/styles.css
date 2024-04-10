@@ -97,14 +97,14 @@ li a {
 
 .pelicula {
     position: relative;
-    width: 156px; /* Aumentamos el ancho en 4px */
-    height: 256px; /* Aumentamos el alto en 4px */
+    width: 156px;
+    height: 256px;
     margin-bottom: 20px;
     perspective: 1000px;
 }
 
 .pelicula img {
-    max-width: 250px; /* Aumentamos el ancho máximo de las imágenes */
+    max-width: 250px;
     height: auto;
     margin-bottom: 10px;
     width: 100%;
@@ -120,11 +120,11 @@ li a {
 }
 
 .pelicula .back-face h3 {
-    font-size: 16px; /* Reducir el tamaño del título */
+    font-size: 16px;
 }
 
 .pelicula .back-face p {
-    font-size: 14px; /* Reducir el tamaño del texto de párrafo */
+    font-size: 14px;
 }
 
 .pelicula .back-face {
