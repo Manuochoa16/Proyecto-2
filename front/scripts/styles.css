@@ -66,15 +66,42 @@ li a {
     padding: 0;
 }
 
+ul.enlaces li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+}
+
+ul.enlaces li a:hover::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -3px;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 1s ease;
+}
+
+ul.enlaces li a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+
 .links {
-    flex-grow: 1;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     text-align: center;
+    width: 100%;
 }
 
 .links .enlaces {
     list-style-type: none;
     padding: 0;
-    text-align: center;
+    margin: 0; /* Agregar para eliminar el margen predeterminado del <ul> */
 }
 
 .links .enlaces li {
@@ -89,11 +116,31 @@ li a {
     font-weight: bold;
 }
 
+.descripcion{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    text-align: center;
+    border: 2px solid #ccc; /* Añadimos el borde */
+    border-radius: 10px; /* Redondeamos los bordes */
+    padding: 20px; /* Espaciado interno para que no esté pegado al borde */
+    width: 80%; /* Establecemos el ancho al 80% */
+    margin: 0 auto; /* Centramos horizontalmente */
+    max-width: 900px; /* Establecemos un ancho máximo */
+}
+
 .contenedor-peliculas {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    width: 80%;
+    margin: 0 auto;
+    max-width: 900px;
 }
+
 
 .pelicula {
     position: relative;
@@ -104,10 +151,8 @@ li a {
 }
 
 .pelicula img {
-    max-width: 250px;
-    height: auto;
-    margin-bottom: 10px;
-    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .pelicula .front-face,
@@ -121,6 +166,7 @@ li a {
 
 .pelicula .back-face h3 {
     font-size: 16px;
+    background-color: rgb(145, 139, 139);
 }
 
 .pelicula .back-face p {
@@ -137,4 +183,64 @@ li a {
 
 .pelicula.flipped .back-face {
     transform: rotateY(360deg);
+}
+
+/*footer animado es de https://codepen.io/Stockin/pen/jeNQEN y no me sale*/
+.container-redes {
+    position: relative;
+    text-align: center;
+}
+
+.redes {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    display: inline-block;
+}
+
+.redes li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.redes li a {
+    display: block;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(0deg, #ddd, #fff);
+    box-shadow: 0 10px 15px rgba(0,0,0,0.3);
+    text-decoration: none;
+    text-align: center;
+    line-height: 60px;
+    transition: box-shadow 0.5s;
+}
+
+.redes li a:hover {
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.redes li a .fab {
+    font-size: 24px;
+    color: #262626;
+}
+
+.redes li:nth-child(1) a:hover .fab {
+    color: #3b5998;
+}
+
+.redes li:nth-child(2) a:hover .fab {
+    color: #00aced;
+}
+
+.redes li:nth-child(3) a:hover .fab {
+    color: #007bb6;
+}
+
+.redes li:nth-child(4) a:hover .fab {
+    color: #e4405f;
+}
+
+#footPage p {
+    margin-top: 20px;
 }
