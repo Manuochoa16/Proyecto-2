@@ -1,20 +1,22 @@
-const $ = require('jquery');
+const axios = require('axios');
 
-function cargarPeliculas() {
+async function cargarPeliculas() {
   const filmsSection = document.getElementById('contMovies');
 
-  $.get('https://students-api.up.railway.app/movies', function(data) {
-    if (data && Array.isArray(data)) {
-      data.forEach(function(movie) {
-        const movieElement = document.createElement('article');
+  try {
+    const response = await axios.get('https://students-api.up.railway.app/movies');
+    const data = response.data;
 
+    if (data && Array.isArray(data)) {
+      data.forEach(function (movie) {
+        const movieElement = document.createElement('article');
         movieElement.classList.add('pelicula');
 
-        movieElement.addEventListener('mouseover', function() {
+        movieElement.addEventListener('mouseover', function () {
           movieElement.classList.add('flipped');
         });
 
-        movieElement.addEventListener('mouseout', function() {
+        movieElement.addEventListener('mouseout', function () {
           movieElement.classList.remove('flipped');
         });
 
@@ -36,7 +38,9 @@ function cargarPeliculas() {
     } else {
       alert('Error al obtener las películas');
     }
-  });
+  } catch (error) {
+    console.error('Error al obtener las películas:', error);
+  }
 }
 
 module.exports = { cargarPeliculas };
