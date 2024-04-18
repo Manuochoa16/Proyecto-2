@@ -4,7 +4,7 @@ async function cargarPeliculas() {
   const filmsSection = document.getElementById('contMovies');
 
   try {
-    const response = await axios.get('https://students-api.up.railway.app/movies');
+    const response = await axios.get('http://localhost:3000/movies');
     const data = response.data;
 
     if (data && Array.isArray(data)) {
