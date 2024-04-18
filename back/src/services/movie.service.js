@@ -44,7 +44,7 @@ const moviesData = [
 ];
 
 
-const getMovies = () => {
+const getMovies = async () => {
     return moviesData;
 };
 
