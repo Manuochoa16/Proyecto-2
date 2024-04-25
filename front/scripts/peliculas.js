@@ -1,46 +1,56 @@
 const axios = require('axios');
 
-async function cargarPeliculas() {
-  const filmsSection = document.getElementById('contMovies');
+const clear = () => {
+    const inputs = document.querySelectorAll("input");
+    inputs.forEach((input)=>{
+        input.value = ""
+    });
+};
 
-  try {
-    const response = await axios.get('http://localhost:3000/movies');
-    const data = response.data;
+async function submit(event) {
+    try {
+        event.preventDefault();
+        const inputs = document.querySelectorAll('input');
 
-    if (data && Array.isArray(data)) {
-      data.forEach(function (movie) {
-        const movieElement = document.createElement('article');
-        movieElement.classList.add('pelicula');
-
-        movieElement.addEventListener('mouseover', function () {
-          movieElement.classList.add('flipped');
+        let formComplete = true;
+        inputs.forEach(input => {
+            if (!input.value) {
+                formComplete = false;
+            }
         });
 
-        movieElement.addEventListener('mouseout', function () {
-          movieElement.classList.remove('flipped');
-        });
+        if (formComplete) {
+            const title = document.getElementById('titulo').value;
+            const year = document.getElementById('año').value;
+            const director = document.getElementById('director').value;
+            const duration = document.getElementById('duracion').value;
+            const genre = document.getElementById('genero').value;
+            const rate = document.getElementById('puntaje').value;
+            const poster = document.getElementById('enlace').value;
 
-        movieElement.innerHTML = `
-          <div class="front-face">
-            <img src="${movie.poster}" alt="${movie.title}">
-          </div>
-          <div class="back-face">
-            <h3>${movie.title} - (${movie.year})</h3> 
-            <p><strong> Director: </strong> ${movie.director}</p>
-            <p><strong> Duracion: </strong> ${movie.duration}</p>
-            <p><strong> Género: </strong> ${movie.genre.join(', ')}</p>
-            <p><strong> Puntaje: </strong> ${movie.rate}</p>
-          </div>
-        `;
+            const respuesta = await axios.post('http://localhost:3000/movies', {
+                title,
+                year,
+                director,
+                duration,
+                genre,
+                rate,
+                poster
+            });
 
-        filmsSection.appendChild(movieElement);
-      });
-    } else {
-      alert('Error al obtener las películas');
+            console.log('Se ha cargado con éxito', respuesta.data);
+            alert('La película se ha cargado con éxito');
+        } else {
+            console.log('Formulario Incompleto');
+            alert('Formulario, Incompleto');
+        }
+    } catch (error) {
+        console.error('No se cargó correctamente:', error);
+        alert('Error al cargar la pelicula, intentelo nuevamente.');
     }
-  } catch (error) {
-    console.error('Error al obtener las películas:', error);
-  }
 }
 
-module.exports = { cargarPeliculas };
+module.exports = {
+    clear,
+    submit,
+};

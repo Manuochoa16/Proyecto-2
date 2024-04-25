@@ -1,6 +1,6 @@
 body {
     background-image: radial-gradient(circle at 48% 33%, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.04) 8%,transparent 8%, transparent 92%),radial-gradient(circle at 28% 16%, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.04) 8%,transparent 8%, transparent 92%),radial-gradient(circle at 34% 52%, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.03) 6%,transparent 6%, transparent 94%),radial-gradient(circle at 92% 52%, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.03) 6%,transparent 6%, transparent 94%),radial-gradient(circle at 77% 84%, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.03) 6%,transparent 6%, transparent 94%),radial-gradient(circle at 75% 64%, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.03) 6%,transparent 6%, transparent 94%),radial-gradient(circle at 70% 62%, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.04) 4%,transparent 4%, transparent 96%),radial-gradient(circle at 55% 100%, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.04) 4%,transparent 4%, transparent 96%),radial-gradient(circle at 12% 11%, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.04) 4%,transparent 4%, transparent 96%),radial-gradient(circle at 35% 55%, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.04) 4%,transparent 4%, transparent 96%),linear-gradient(45deg, rgb(26, 21, 192),rgb(55,7,90));
-}
+} 
 
 body, h1, h2, h3, h4, h5, h6, p, a {
     color: white;
@@ -19,6 +19,7 @@ li a {
     font-size: 20px;
 }
 
+
 #barNav {
     position: fixed;
     top: 0;
@@ -34,7 +35,6 @@ li a {
     background-color: rgba(0, 0, 0, 0);
     color: white;
     padding: 10px 0;
-    position: fixed;
     bottom: 0;
     width: 100%;
 }
@@ -42,6 +42,14 @@ li a {
 #name{
     height: 40px;
 }
+
+.formulario-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 
 .header-transparent {
     background-color: rgba(0, 0, 0, 0);
@@ -101,7 +109,7 @@ ul.enlaces li a:hover::after {
 .links .enlaces {
     list-style-type: none;
     padding: 0;
-    margin: 0; /* Agregar para eliminar el margen predeterminado del <ul> */
+    margin: 0;
 }
 
 .links .enlaces li {
@@ -121,12 +129,12 @@ ul.enlaces li a:hover::after {
     flex-wrap: wrap;
     justify-content: space-around;
     text-align: center;
-    border: 2px solid #ccc; /* Añadimos el borde */
-    border-radius: 10px; /* Redondeamos los bordes */
-    padding: 20px; /* Espaciado interno para que no esté pegado al borde */
-    width: 80%; /* Establecemos el ancho al 80% */
-    margin: 0 auto; /* Centramos horizontalmente */
-    max-width: 900px; /* Establecemos un ancho máximo */
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    width: 80%;
+    margin: 0 auto;
+    max-width: 900px;
 }
 
 .contenedor-peliculas {
@@ -148,6 +156,7 @@ ul.enlaces li a:hover::after {
     height: 256px;
     margin-bottom: 20px;
     perspective: 1000px;
+    margin-bottom: 300px;
 }
 
 .pelicula img {
@@ -155,41 +164,7 @@ ul.enlaces li a:hover::after {
     max-height: 100%;
 }
 
-.pelicula .front-face,
-.pelicula .back-face {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.6s;
-    backface-visibility: hidden;
-}
 
-.pelicula .back-face h3 {
-    font-size: 16px;
-    background-color: rgb(145, 139, 139);
-}
-
-.pelicula .back-face p {
-    font-size: 14px;
-}
-
-.pelicula .back-face {
-    transform: rotateY(180deg);
-}
-
-.pelicula.flipped .front-face {
-    transform: rotateY(180deg);
-}
-
-.pelicula.flipped .back-face {
-    transform: rotateY(360deg);
-}
-
-
-/*footer animado es de https://codepen.io/Stockin/pen/jeNQEN y no me sale*/
-/* Tu CSS anterior aquí */
-
-/*footer animado es de https://codepen.io/Stockin/pen/jeNQEN y no me sale*/
 .container-redes {
     position: relative;
     text-align: center;
@@ -208,9 +183,9 @@ ul.enlaces li a:hover::after {
 }
 
 .redes li a {
-    display: flex; /* Utilizamos flexbox para centrar verticalmente */
-    justify-content: center; /* Centramos horizontalmente */
-    align-items: center; /* Centramos verticalmente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -221,8 +196,8 @@ ul.enlaces li a:hover::after {
 }
 
 .redes li a img {
-    width: 30px; /* Reducimos el tamaño de las imágenes */
-    height: 30px; /* Reducimos el tamaño de las imágenes */
+    width: 30px;
+    height: 30px;
     transition: filter 0.5s ease;
 }
 
@@ -230,7 +205,7 @@ ul.enlaces li a:hover::after {
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 .redes li a:hover img {
-    filter: grayscale(0%); /* Cambiamos el color de la imagen al pasar el mouse */
+    filter: grayscale(0%);
 }
 
 .redes li a .fab {
@@ -255,21 +230,110 @@ ul.enlaces li a:hover::after {
 }
 
 .redes li:nth-child(1) a:hover {
-    background-color: #3b5998; /* Cambia el color de fondo de la primera imagen al pasar el mouse */
+    background-color: #3b5998;
 }
 
 .redes li:nth-child(2) a:hover {
-    background-color: #00aced; /* Cambia el color de fondo de la segunda imagen al pasar el mouse */
+    background-color: #00aced;
 }
 
 .redes li:nth-child(3) a:hover {
-    background-color: #007bb6; /* Cambia el color de fondo de la tercera imagen al pasar el mouse */
+    background-color: #007bb6;
 }
 
 .redes li:nth-child(4) a:hover {
-    background-color: #e4405f; /* Cambia el color de fondo de la cuarta imagen al pasar el mouse */
+    background-color: #e4405f;
 }
 
 #footPage p {
     margin-top: 20px;
+}
+
+
+form input[type="text"],
+form input[type="number"],
+form input[type="url"] {
+    background-color: transparent;
+    border-radius: 3px;
+    color: white;
+    margin-top: 4px;
+    text-align: auto;
+}
+
+
+.containerMovie {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.formulario {
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.formulario {
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.formulario div {
+    margin-bottom: 15px;
+}
+
+.formulario label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+
+.formulario input[type="text"],
+.formulario input[type="number"],
+.formulario input[type="url"] {
+    width: 100%;
+    padding: 8px;
+    border-radius: 3px;
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+}
+
+.formulario input[type="text"]:hover,
+.formulario input[type="number"]:hover,
+.formulario input[type="url"]:hover {
+    box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
+    color: rgb(255, 255, 255);
+}
+
+.volver, .enviar {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    padding: 5px 10px;
+    margin: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.volver:hover, .enviar:hover {
+    box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
+    color: rgb(255, 255, 255);
+}
+
+#botonclear {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    padding: 5px 10px;
+    margin: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#botonclear:hover {
+    box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
+    color: rgb(255, 255, 255);
 }
